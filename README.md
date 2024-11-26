@@ -1,2 +1,2 @@
-# DockWise
+# LigDockTailor
 Customizing Docking Program Selection Through Ligand Feature Modeling
