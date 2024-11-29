@@ -1,7 +1,7 @@
 # LigDockTailor
 Customizing Docking Program Selection Through Ligand Feature Modeling
 
-Please refer to 'Source_Rely.txt' to configure the relevant environment before use
+Please refer to 'config.txt' to configure the relevant environment before use
 
 Usage:
 1. Download /building/LigDockTailor_model.rar to the user-defined PATH and unzip it.
@@ -31,4 +31,4 @@ Usage:
                           various docking programs
                           
     -on OUTPUT_NAME_FILE, --output_name_file OUTPUT_NAME_FILE
-                          Output file with the names of all molecules
+                          Output file with the user-defined identifiers of all molecules after classification
