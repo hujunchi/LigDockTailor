@@ -1,7 +1,7 @@
 # LigDockTailor
 Customizing Docking Program Selection Through Ligand Feature Modeling
 
-Please refer to 'config.txt' to configure the relevant environment before use
+Please refer to 'config' to configure the relevant environment before use
 
 Usage:
 1. Download /building/LigDockTailor_model.rar to the user-defined PATH and unzip it.
