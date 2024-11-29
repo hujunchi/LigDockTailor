@@ -7,6 +7,7 @@ Usage:
 4. Use the command in the working directory containing the files to be processed: python LigDockTailor_main.py [-h] [-im INPUT_MOL] [-in INPUT_NAME] [-oc OUTPUT_CSV_FILE] [-oz OUTPUT_ZIP_FILE] [-on OUTPUT_NAME_FILE]
 
   optional arguments:
+  
     -h, --help            show this help message and exit
     
     -im INPUT_MOL, --input_mol INPUT_MOL
