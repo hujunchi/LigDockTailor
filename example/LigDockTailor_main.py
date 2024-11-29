@@ -117,11 +117,11 @@ def calculate_properties_predict(mols, names, output_csv_file,output_zip_file):
       
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process molecular data.')
-    parser.add_argument('-im', '--input_mol', type=str, help='Input molecule file')
-    parser.add_argument('-in', '--input_name', type=str, help='Input molecule name file')
-    parser.add_argument('-oc', '--output_csv_file', type=str, help='Output CSV file')
-    parser.add_argument('-oz', '--output_zip_file', type=str, help='Output ZIP file')
-    parser.add_argument('-on', '--output_name_file', type=str, help='Output molecule name file')
+    parser.add_argument('-im', '--input_mol', type=str, help='The molecular file to be processed must be in sdf format (RDkit/Open Babel is recommended for format conversion).')
+    parser.add_argument('-in', '--input_name', type=str, help='User-defined identifiers for all molecules in the molecule file to be processed, required to be a readable text file (XX.txt, XX.csv, etc.).')
+    parser.add_argument('-oc', '--output_csv_file', type=str, help='Output csv file containing classification information')
+    parser.add_argument('-oz', '--output_zip_file', type=str, help='Output zip compressed file containing sdf files of molecules classified into various docking programs')
+    parser.add_argument('-on', '--output_name_file', type=str, help='Output file with the names of all molecules')
 
     args = parser.parse_args()
 
