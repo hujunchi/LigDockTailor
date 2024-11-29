@@ -9,7 +9,7 @@ Usage:
 3. Copy 'LigDockTailor_model.joblib' and 'LigDockTailor_main.py' to the working directory
 4. Use the command in the working directory containing the files to be processed:
 
-   python LigDockTailor_main.py [-h] [-im INPUT_MOL] [-in INPUT_NAME] [-oc OUTPUT_CSV_FILE] [-oz OUTPUT_ZIP_FILE] [-on OUTPUT_NAME_FILE]
+   _python LigDockTailor_main.py [-h] [-im INPUT_MOL] [-in INPUT_NAME] [-oc OUTPUT_CSV_FILE] [-oz OUTPUT_ZIP_FILE] [-on OUTPUT_NAME_FILE]_
 
   optional arguments:
   
