@@ -89,7 +89,7 @@ def calculate_properties_predict(mols, names, output_csv_file,output_zip_file):
     loaded_model = load("/path/LigDockTailor_model.joblib")
     predictions_result = loaded_model.predict(X)
     y_PRED_prob = loaded_model.predict_proba(X)
-    name_ls = ['Glide_SP', 'Glide_XP', 'MOE', 'GOLD', 'FlexX', 'Autodock_Vina', 'Autodock_Vinardo', 'LeDock', 'rDock']
+    name_ls = ['Glide_SP', 'Glide_XP', 'MOE', 'GOLD', 'FlX', 'Autodock_Vina', 'Autodock_Vinardo', 'LeDock', 'rDock']
     res = []
     for t in range(len(X)):
         cal = []
