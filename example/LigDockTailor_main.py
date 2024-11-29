@@ -26,7 +26,6 @@ def calculate_sp3_nitrogen(mol):
     return sp3_count
 
 def apply_structure_filter(mol_supplier, name_list, apply_filter=True):
-    # 创建 PAINS 过滤器对象
     writer1 = Chem.SDWriter('./filter.sdf')
     filtered_names = []
     for i, mol in enumerate(mol_supplier):
@@ -34,14 +33,12 @@ def apply_structure_filter(mol_supplier, name_list, apply_filter=True):
             continue
 
         if apply_filter:
-            # 使用分子量小于500和不是 PAINS 的条件进行筛选
             mol_weight = Descriptors.MolWt(mol)
             if mol_weight < 500:
                 try:
-                    # 构象优化
-                    ff_mol = Chem.AddHs(mol)  # 添加氢原子
-                    AllChem.EmbedMolecule(ff_mol, useRandomCoords=True)  # 随机生成初始构象
-                    AllChem.MMFFOptimizeMolecule(ff_mol)  # 进行构象优化
+                    ff_mol = Chem.AddHs(mol)  
+                    AllChem.EmbedMolecule(ff_mol, useRandomCoords=True)
+                    AllChem.MMFFOptimizeMolecule(ff_mol)
                     writer1.write(ff_mol)
                     filtered_names.append(name_list[i])
                 except:
@@ -76,7 +73,7 @@ def calculate_properties_predict(mols, names, output_csv_file,output_zip_file):
         
         ecfp = AllChem.GetMorganFingerprintAsBitVect(mol,radius=3, nBits=1024,useFeatures=False).ToBitString()
         for ct in range(1024):
-            properties[f'Ext{ct+1}'] = ecfp[ct]  # 将指纹分别命名为"Ext1"到"Ext1024"
+            properties[f'Ext{ct+1}'] = ecfp[ct]
         
         data.append(properties)
 
@@ -103,19 +100,14 @@ def calculate_properties_predict(mols, names, output_csv_file,output_zip_file):
 
     df.insert(1, 'Software', res)
     for n in name_ls:
-        # 查找所有包含n的索引
         indices = [i for i, software in enumerate(res) if n in software]
-        # 提取包含n的分子
         molecules = [filtered_mols[i] for i in indices if filtered_mols[i] is not None]
-
-        # 保存提取的分子为新的SDF文件
         output_sdf_file = './' + n + '.sdf'
         writer = Chem.SDWriter(output_sdf_file)
 
         for molecule in molecules:
             writer.write(molecule)
     writer.close()
-    # 将所有生成的 SDF 文件压缩到一个 ZIP 文件
     with zipfile.ZipFile(output_zip_file, 'w') as zip_file:
         for sdf_file in os.listdir('.'):
             if sdf_file.endswith('.sdf'):
